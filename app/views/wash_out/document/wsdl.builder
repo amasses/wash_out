@@ -35,7 +35,7 @@ xml.definitions 'xmlns' => 'http://schemas.xmlsoap.org/wsdl/',
   xml.portType :name => "#{@name}_port" do
     @map.each do |operation, formats|
       xml.operation :name => operation do
-        xml.input :message => "tns:#{operation}"
+        xml.input :message => "tns:#{formats[:request_tag]}"
         xml.output :message => "tns:#{formats[:response_tag]}"
       end
     end
